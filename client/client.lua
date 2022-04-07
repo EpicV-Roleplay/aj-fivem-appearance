@@ -433,11 +433,11 @@ CreateThread(function()
 
 		SetBlipSprite (blip, 71)
 		-- SetBlipColour (blip, 47)
-		SetBlipScale (blip, 0.7)
+		SetBlipScale (blip, 0.5)
 		SetBlipAsShortRange(blip, true)
 
 		BeginTextCommandSetBlipName('STRING')
-		AddTextComponentSubstringPlayerName('Barber Shop')
+		AddTextComponentSubstringPlayerName('Friseurladen')
 		EndTextCommandSetBlipName(blip)
 	end
 	for k,v in ipairs(Config.ClothingShops) do
@@ -447,11 +447,11 @@ CreateThread(function()
 
 			SetBlipSprite (blip, 73)
 			-- SetBlipColour (blip, 47)
-			SetBlipScale (blip, 0.7)
+			SetBlipScale (blip, 0.5)
 			SetBlipAsShortRange(blip, true)
 
 			BeginTextCommandSetBlipName('STRING')
-			AddTextComponentSubstringPlayerName('Clothing Store')
+			AddTextComponentSubstringPlayerName('Kleiderladen')
 			EndTextCommandSetBlipName(blip)
 		end
 	end
@@ -487,13 +487,13 @@ CreateThread(function()
 		if (isInClothingShop and not hasAlreadyEnteredMarker) or (isInClothingShop and LastZone ~= currentZone) then
 			hasAlreadyEnteredMarker, LastZone = true, currentZone
 			CurrentAction     = 'clothingMenu'
-			exports['qb-drawtext']:DrawText('[E] Clothing Menu','left')
+			exports['qb-drawtext']:DrawText('[E] Kleiderlade','left')
 		end
 
 		if (isInBarberShop and not hasAlreadyEnteredMarker) or (isInBarberShop and LastZone ~= currentZone) then
 			hasAlreadyEnteredMarker, LastZone = true, currentZone
 			CurrentAction     = 'barberMenu'
-			exports['qb-drawtext']:DrawText('[E] Barber Menu','left')
+			exports['qb-drawtext']:DrawText('[E] Friseurladen','left')
 		end
 
 		if not isInClothingShop and not isInBarberShop and hasAlreadyEnteredMarker then
@@ -521,9 +521,9 @@ RegisterCommand('reloadskin', function()
             DeleteObject(v)
             DeleteEntity(v)
         end
-	SetPedMaxHealth(PlayerId(), maxhealth)
+	--SetPedMaxHealth(PlayerId(), maxhealth)
 	Citizen.Wait(1000) -- Safety Delay
-	SetEntityHealth(PlayerPedId(), health)
+	--SetEntityHealth(PlayerPedId(), health)
     end
 end)
 
